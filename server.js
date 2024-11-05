@@ -29,7 +29,7 @@ MongoClient.connect(url,
 		//   console.log("1 document inserted");
 		//   db.close();
 	
-
+	})
 //app.use(express.static("public"))
 //app.set("view engine", "ejs")
 
@@ -38,7 +38,7 @@ MongoClient.connect(url,
 //  res.render("index",{text:"amir"})
 
  
- })
+
 // app.get("/",(req, res)=>{
 // 	MongoClient.connect(url,
 // 		function(err, db)
