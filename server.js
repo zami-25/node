@@ -28,7 +28,7 @@ MongoClient.connect(url,
 		//   if (err) throw err;
 		//   console.log("1 document inserted");
 		//   db.close();
-	})
+	
 
 //app.use(express.static("public"))
 //app.set("view engine", "ejs")
@@ -38,26 +38,26 @@ MongoClient.connect(url,
 //  res.render("index",{text:"amir"})
 
  
-// })
-app.get("/",(req, res)=>{
-	MongoClient.connect(url,
-		function(err, db)
-		 {
-		 if (err) throw err;
-		   var dbo = db.db("mydb");
-		   dbo.createCollection("users", function(err, res)
-			 {
-			 if (err) throw err;
-			 console.log("Collection created!");
+ })
+// app.get("/",(req, res)=>{
+// 	MongoClient.connect(url,
+// 		function(err, db)
+// 		 {
+// 		 if (err) throw err;
+// 		   var dbo = db.db("mydb");
+// 		   dbo.createCollection("users", function(err, res)
+// 			 {
+// 			 if (err) throw err;
+// 			 console.log("Collection created!");
 	   
-			   db.close();
-			 });
-})
-})
-const userroute=require('./routes/users.js')
-app.use("/users",userroute)
+// 			   db.close();
+// 			 });
+// })
+// })
+// const userroute=require('./routes/users.js')
+// app.use("/users",userroute)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+ app.listen(port, () => {
+   console.log(`Example app listening on port ${port}`)
+ })
 
