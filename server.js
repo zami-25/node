@@ -40,7 +40,19 @@ MongoClient.connect(url,
  
 // })
 app.get("/",(req, res)=>{
-  res.end("/ is here")
+	MongoClient.connect(url,
+		function(err, db)
+		 {
+		 if (err) throw err;
+		   var dbo = db.db("mydb");
+		   dbo.createCollection("users", function(err, res)
+			 {
+			 if (err) throw err;
+			 console.log("Collection created!");
+	   
+			   db.close();
+			 });
+})
 })
 const userroute=require('./routes/users.js')
 app.use("/users",userroute)
