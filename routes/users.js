@@ -1,5 +1,6 @@
 const express = require('express')
 const router=express()
+router.use(express.static("public/html"))
 //const router=express.Router()
 router.set("view engine", "ejs")
 //router.use(express.urlencoded({extended:true}))
