@@ -4,9 +4,9 @@ const path = require('path')
 login.use(express.urlencoded({extended:true}))
 
 
-login.use('/js', express.static(path.join(__dirname, 'public/js')))
-login.use('/css', express.static(path.join(__dirname, 'public/cdn/css')))
-login.use('/jquery', express.static(path.join(__dirname, 'public/cdn/jquery')))
+login.use('/js', express.static(path.join('/home/amir/Desktop/prj/express/public/js')))
+login.use('/css', express.static(path.join('/home/amir/Desktop/prj/express/public/cdn/css')))
+login.use('/jquery', express.static(path.join('/home/amir/Desktop/prj/express/public/cdn/jquery')))
 
 login.set("view engine", "ejs")
 
