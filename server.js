@@ -22,13 +22,16 @@ app.use(express.urlencoded({extended:true}))
 
 //   res.sendFile(path.join(__dirname, 'public/html/index.html'))
 // });
-//app.use(express.static("public/html"))
+// app.use(express.static("public/html"))
  
 
 
 
 const loginroute=require("./routes/login.js")
 app.use("/login",loginroute)
+
+const registerroute=require("./routes/register.js")
+app.use("/register",registerroute)
 
 const userroute=require('./routes/users.js')
 app.use("/users",userroute)

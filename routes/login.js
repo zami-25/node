@@ -3,17 +3,18 @@ const login=express()
 const path = require('path')
 login.use(express.urlencoded({extended:true}))
 
-
+//login.use(express.static("public"))
 login.use('/js', express.static(path.join('/home/amir/Desktop/prj/express/public/js')))
 login.use('/css', express.static(path.join('/home/amir/Desktop/prj/express/public/cdn/css')))
 login.use('/jquery', express.static(path.join('/home/amir/Desktop/prj/express/public/cdn/jquery')))
+
 
 login.set("view engine", "ejs")
 
 var  MongoClient = require('mongodb').MongoClient;
 
 login.get('/',(req,res)=>{
-    res.render("login/index")
+    res.render("login")
 })
 
 

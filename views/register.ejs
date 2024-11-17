@@ -19,10 +19,12 @@
 
         
       <!-- app use -->
-      <link rel="stylesheet" href="./cs3s/bootstrap.min.css">
-      <script src="./js/jquery.slim.min.js"></script>
-      <link rel="stylesheet" href="./css/bootstrap.min.css">
-      <script src="./jquery/jquery-3.3.1.slim.min.js"></script>
+     
+    
+      <link rel="stylesheet"  href="register/css/bootstrap.min.css">
+      <script src="register/jquery/jquery-3.3.1.slim.min.js"></script>
+      <script src="register/js/reg.js"></script>
+      
       </head>
 </html>
 <body>
@@ -37,8 +39,8 @@
      padding: 20px;
      border: 1px solid #888;
      width: 60%;">
-      <span id="11" class="close">&times;</span>
-      <p>login is succesful </p>
+      <span id="zarbdar" class="close">&times;</span>
+      <p>register is succesful </p>
     </div>
   </div>
     <section class="vh-100" style="background-color: #9A616D;">
@@ -49,39 +51,44 @@
                 <div class="row g-0">
                   <div class="col-md-6 col-lg-5 d-none d-md-block">
                     <img src=""
-                      alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                      alt="register form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                       <form action="/login" method="post">
+                       <form action="/register" method="post"  >
       
                         <div class="d-flex align-items-center mb-3 pb-1">
                           <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
                           <span class="h1 fw-bold mb-0"></span>
                         </div>
       
-                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register form</h5>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input id="user" type="text" placeholder="username" name="username"  class="form-control form-control-lg" />
+                          <input id="user" type="text" placeholder="username" name="username" autocomplete="on" class="form-control form-control-lg" />
       
-                          <div id="error" style="display:none;color: #ed3f3f;">username can not be empty</div>
+                          <div id="error1" style="display:none;color: #ed3f3f;">username can not be empty</div>
                         </div>
-                        
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input id="age" type="number" placeholder="age" name="age"  class="form-control form-control-lg" />
+      
+                          <div id="error2" style="display:none;color: #ed3f3f;">age can not be empty</div>
+                          
+                        </div>
       
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input  type="password" id="zz" placeholder="password" name="password" class="form-control form-control-lg" />
-                          <div id="err" style="display:none;color: #ed3f3f;">password can not be empty</div>
+                          <div id="error3" style="display:none;color: #ed3f3f;">password can not be empty</div>
                         </div>
       
                         <div class="pt-1 mb-4">
                           <button id="bt" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block"  type="submit" >Login</button>
                         </div>
       
-                        <a class="small text-muted" href="#!">Forgot password?</a>
-                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                            style="color: #393f81;">Register here</a></p>
+                       
+                        <p class="mb-5 pb-lg-2" style="color: #ededed;">already an account? <a href="/login"
+                            style="color: #c46075;">sign in</a></p>
                        
                       </form> 
       
@@ -97,5 +104,5 @@
       
 <!-- windows 
  <script src="file:///D:/prj/login/js/login.js"></script> -->
-<script src="./js/login.js"></script>
+<script src="register/js/reg.js"></script>
 </body>
