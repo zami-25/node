@@ -19,7 +19,7 @@
     else{
       document.getElementById("error").style.display="none"
       document.getElementById("err").style.display="none"
-      document.getElementById("bt").innerHTML="update"
+      
 s
       //document.getElementById("myModal").style.display="block"
 

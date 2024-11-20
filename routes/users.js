@@ -1,110 +1,86 @@
 const express = require('express')
-const router=express()
-router.use(express.static("public/html"))
-//const router=express.Router()
-router.set("view engine", "ejs")
-//router.use(express.urlencoded({extended:true}))
-//router.use(logg)
- var  MongoClient = require('mongodb').MongoClient;
+const users=express()
+const path = require('path')
+users.use(express.json())
+// import path from 'node:path'
+users.use(express.urlencoded({extended:true}))
 
 
-router.get('/',
-    (req,res)=>
-        res.end("users")
-)
+users.use('/js', express.static(path.join('/home/amir/Desktop/prj/express/public/js')))
+users.use('/css', express.static(path.join('/home/amir/Desktop/prj/express/public/cdn/css')))
+users.use('/jquery', express.static(path.join('/home/amir/Desktop/prj/express/public/cdn/jquery')))
+
+users.set("view engine", "ejs")
+var  MongoClient = require('mongodb').MongoClient;
+const login=require("./login.js")
+
+
+
+
+users.get('/',
+    (req,res)=>{
+       res.render("users",)
+       })
+
+users.get('/find',(req,res)=>{
+  const client = new MongoClient("mongodb://admin:pass@192.168.1.36:27017");
+  async function find() {
+    try {
+     
+      const database = client.db("test");
+      const users = database.collection("users");
+      const result= await users.findOne({name:"aa"})
+      console.log(result.age)
+      console.log(result.name)
+      
+      age1=result.age
+      nam=result.name
+      // age=res.body.age
+      // password=res.body.password
+      // age=result.age
+      
+       
+      
+     }
+     
+     finally {
   
-router.get('/new',
-    (req,res)=>
-{        res.render("users/new")
-    
-
-})
-
-//router.post('/new',
-  //  (req,res)=>{
-   // const isValid=true
-   // if(isValid){
-     // users.push({name:req.body.name})
-     // console.log(users)
-     // res.redirect(`/useres/${users.length-1}`)
-    //}else{
-      //console.log("error")
-     // res.render('users/new',{name:req.body.name
-     // })
-   // }
- //} )
-
-router.post('/new',
-(req,res)=>{
-
-const client = new MongoClient("mongodb://admin:pass@localhost:27017");
-async function run() {
-  try {
-
-    const database = client.db("test");
-    const users = database.collection("users");
-
-
-    const doc = {
-      name:req.body.name
+      await client.close();
     }
-
-    const result = await users.insertOne(doc);
-
-    console.log(`A document was inserted with the _id: ${result.insertedId}`);
-  } finally {
-
-    await client.close();
   }
-}
-
-run().catch(console.dir);
-});
-
-
-router.route("/:id")
-.delete
-(
-    (req,res)=>
-        {id=req.params.id
-          res.send(`user id is ${id}`)
-        }
-)
-.put
-(
-    (req,res)=>
-        {id=req.params.id
-          res.send(`user id is ${id}`)
-        }
-)
-.get
-(
-    (req,res)=>
-        {id=req.params.id
-          console.log(req.user)
-          res.send(`user id is ${id}`)
-        }
-)
+  
+  find().catch(console.dir);
+   // res.send('register')
+   
+})
+       
 
 
-//const users=[{name:'amir'},{name:'alo'}]
-//router.param("id",(req,res,next,id)=>{
-  //  req.user=users[id]
-    //next()
-    // console.log(users[1])
-    // res.send(`$hello ${users[1]}`)
+//  register.post('/',(req,res)=>{
+//     const client = new MongoClient("mongodb://admin:pass@192.168.1.36:27017");
+// async function insert() {
+//   try {
+
+//     const database = client.db("test");
+//     const users = database.collection("users");
 
 
-//})
-//function logg(req, res,next){
-  //  console.log(req.url)
-    //next()
- // }
+//     const doc = {
+//       name:req.body.username,
+//       age:req.body.age,
+//       password:req.body.password
+//     }
+//     console.log(doc)
+//     const result = await users.insertOne(doc);
     
 
+//     console.log(`A document was inserted with the _id: ${result.insertedId}`);
+//   } finally {
 
-            
-           
+//     await client.close();
+//   }
+// }
 
-
-module.exports=router
+//  insert().catch(console.dir);
+//   })
+module.exports=users
