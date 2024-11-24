@@ -38,12 +38,25 @@ async function insert() {
     //   age:req.body.age,
     //   password:req.body.password
     // }
-    const doc=req.body
-    console.log(doc)
-    const result = await users.insertOne(doc);
+    const body=req.body
+  
+    var search= await users.findOne( {username:body.username})
+    console.log(search)
+
+    if(search==null){
+      const result = await users.insertOne(body);
     
 
-    console.log(`A document was inserted with the _id: ${result.insertedId}`);
+      console.log(`A document was inserted with the _id: ${result.insertedId}`);
+    }
+    else {
+      // res.send(`user with ${body.username} is already existed`)
+    
+      res.redirect('/register')
+      
+      console.log(`user with ${body.username} is already existed`);
+    }
+    
   } finally {
 
     await client.close();

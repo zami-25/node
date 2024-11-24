@@ -17,29 +17,84 @@ const login=require("./login.js")
 
 
 
-users.get('/',
-    (req,res)=>{
-       res.render("users",)
-       })
-
-users.get('/find',(req,res)=>{
+// users.get('/',
+//     (req,res)=>{
+//        res.render("users",)
+       
+//         const client = new MongoClient("mongodb://admin:pass@172.16.20.184:27017");
+//         async function find() {
+//           try {
+           
+//             const database = client.db("test");
+//             const users = database.collection("users");
+//             const result= await users.findOne({username:"amir"})
+//             console.log(result.username)
+//             console.log(result.age)
+            
+//             age1=result.age
+//             nam=result.username
+//             // age=res.body.age
+//             // password=res.body.password
+//             // age=result.age
+            
+             
+            
+//            }
+           
+//            finally {
+        
+//             await client.close();
+//           }
+//         }
+        
+//         find().catch(console.dir);
+//        })
+users.post('/delete',(req,res)=>{
+  res.render('login')
   const client = new MongoClient("mongodb://admin:pass@192.168.1.36:27017");
-  async function find() {
+  async function del() {
     try {
      
       const database = client.db("test");
       const users = database.collection("users");
-      const result= await users.findOne({name:"aa"})
-      console.log(result.age)
-      console.log(result.name)
+      const body=req.body 
       
-      age1=result.age
-      nam=result.name
-      // age=res.body.age
-      // password=res.body.password
-      // age=result.age
+      const result= await users.deleteMany(
+        {username:body.username})
+
+     }
+     
+     finally {
+  
+      await client.close();
+    }
+  }
+  
+  del().catch(console.dir);
+   console.log(`delete user ${req.body}`)
+   
+
+})
+ 
+users.post('/update',(req,res)=>{
+ // res.render('login')
+  const client = new MongoClient("mongodb://admin:pass@192.168.1.36:27017");
+  async function update() {
+    try {
+     
+      const database = client.db("test");
+      const users = database.collection("users");
+      const body=req.body 
       
-       
+      const result= await users.updateOne(
+        {username:body.username},{
+          $set:{
+            username:body.newusername,
+            age:body.age
+          }
+        })
+      
+      
       
      }
      
@@ -49,8 +104,8 @@ users.get('/find',(req,res)=>{
     }
   }
   
-  find().catch(console.dir);
-   // res.send('register')
+  update().catch(console.dir);
+   console.log('update user')
    
 })
        

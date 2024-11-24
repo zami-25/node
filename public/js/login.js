@@ -1,5 +1,5 @@
 
-
+    
  $(document).ready(function(){
   document.getElementById("bt").addEventListener("click",function()
   {
@@ -17,10 +17,12 @@
     }
 
     else{
+      
       document.getElementById("error").style.display="none"
       document.getElementById("err").style.display="none"
-      
-s
+      //document.getElementById("zz").value==""
+     // document.getElementById("age1").style.display='block'
+      //document.getElementById("age1").value==username
       //document.getElementById("myModal").style.display="block"
 
 
@@ -30,6 +32,7 @@ s
  })
   
  })
+ document.getElementById("age").value=="22"
 //  document.getElementById("close").addEventListener("click",function () {
 //   document.getElementById("myModal").style.display="none"
 

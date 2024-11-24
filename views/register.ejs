@@ -66,19 +66,19 @@
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register form</h5>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input id="user" type="text" placeholder="username" name="username" autocomplete="on" class="form-control form-control-lg" />
+                          <input id="user" type="text" placeholder="username" name="username" required oninvalid="this.setCustomValidity('username cant be empty')" oninput="this.setCustomValidity('')" autocomplete="on" class="form-control form-control-lg" />
       
                           <div id="error1" style="display:none;color: #ed3f3f;">username can not be empty</div>
                         </div>
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input id="age" type="number" placeholder="age" name="age"  class="form-control form-control-lg" />
+                          <input id="age" type="number" placeholder="age" name="age" required oninvalid="this.setCustomValidity('age cant be empty')" oninput="this.setCustomValidity('')" class="form-control form-control-lg" />
       
                           <div id="error2" style="display:none;color: #ed3f3f;">age can not be empty</div>
                           
                         </div>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input  type="password" id="zz" placeholder="password" name="password" class="form-control form-control-lg" />
+                          <input  type="password" id="zz" placeholder="password" required oninvalid="this.setCustomValidity('password cant be empty')" oninput="this.setCustomValidity('')" name="password" class="form-control form-control-lg" />
                           <div id="error3" style="display:none;color: #ed3f3f;">password can not be empty</div>
                         </div>
       

@@ -35,9 +35,13 @@ async function find() {
     // }
 
     //const result = await users.insertOne(doc);
-    const result= await users.findOne( {name:req.body.username})
+    const result= await users.findOne( {username:req.body.username})
+    
    if(result.password===req.body.password){
-     
+    res.render('users')
+    age1=result.age
+    nam=result.username
+    console.log(age1)
    }
    else(res.send('wrong username or password'))
   } finally {

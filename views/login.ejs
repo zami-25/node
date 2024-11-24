@@ -23,10 +23,11 @@
      
       <link rel="stylesheet" href="login/css/bootstrap.min.css">
       <script src="login/jquery/jquery-3.3.1.slim.min.js"></script>
+      
       </head>
 </html>
 <body>
-  
+  <script src="login/js/login.js"></script>
   <div id="myModal" class="modal" style="display: none; background-color: rgba(101, 98, 98, 0.64);
 ">
     <div class="modal-content"
@@ -51,9 +52,10 @@
                     <img src=""
                       alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                   </div>
+          
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
-      
+                          
                        <form action="/login" method="post">
       
                         <div class="d-flex align-items-center mb-3 pb-1">
@@ -64,14 +66,20 @@
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input id="user" type="text" placeholder="username" name="username"  class="form-control form-control-lg" />
+                          <input id="user" type="text" placeholder="username" name="username" required oninvalid="this.setCustomValidity('username cant be empty')" oninput="this.setCustomValidity('')" class="form-control form-control-lg" />
       
                           <div id="error" style="display:none;color: #ed3f3f;">username can not be empty</div>
+                        </div>
+
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input id="age" type="number"  placeholder="age" name="age" style="display: none;" class="form-control form-control-lg" />
+      
+                          <div id="error2" style="display:none;color: #ed3f3f;">age can not be empty</div>
                         </div>
                         
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input  type="password" id="zz" placeholder="password" name="password" class="form-control form-control-lg" />
+                          <input  type="password" id="zz" placeholder="password" name="password" required oninvalid="this.setCustomValidity('password cant be empty')" oninput="this.setCustomValidity('')" class="form-control form-control-lg" />
                           <div id="err" style="display:none;color: #ed3f3f;">password can not be empty</div>
                         </div>
       

@@ -29,7 +29,7 @@
 </html>
 <body>
   
-  <div id="myModal" class="modal" style="display: none; background-color: rgba(101, 98, 98, 0.64);
+  <div id="updateModal" class="modal" style="display: none; background-color: rgba(101, 98, 98, 0.64);
 ">
     <div class="modal-content"
      style=
@@ -56,7 +56,7 @@
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                       <form action="/users/find" method="get"  >
+                       <form action="/users/update" method="post"  >
       
                         <div class="d-flex align-items-center mb-3 pb-1">
                           <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -66,36 +66,39 @@
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">welcome</h5>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input id="user" value="" type="text" placeholder="username" name="username"  autocomplete="on" class="form-control form-control-lg" />
+                          <input id="user"  type="text"  placeholder="username" value="<%=nam%>" name="username"  autocomplete="on" class="form-control form-control-lg" />
       
                           <div id="error1" style="display:none;color: #ed3f3f;">username can not be empty</div>
                         </div>
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input id="age" type="number" placeholder="age" name="age"  class="form-control form-control-lg" />
+                          <input id="newuser"  type="text"  placeholder="newusername" value="" name="newusername"  autocomplete="on" class="form-control form-control-lg" />
+      
+                          <div id="error3" style="display:none;color: #ed3f3f;">username can not be empty</div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input id="age" type="number" placeholder="age" value="<%=age1%>" name="age"  class="form-control form-control-lg" />
       
                           <div id="error2" style="display:none;color: #ed3f3f;">age can not be empty</div>
                           
                         </div>
       
-                        <div data-mdb-input-init class="form-outline mb-4">
-                          <input  type="password" id="zz" placeholder="password" name="password" class="form-control form-control-lg" />
-                          <div id="error3" style="display:none;color: #ed3f3f;">password can not be empty</div>
-                        </div>
+                       
       
                         <div class="pt-1 mb-4">
-                          <button id="bt" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block"  type="submit" >find</button>
+                          <button id="bt" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block"  type="submit" >update</button>
+                        </div>
+                        <div class="pt-1 mb-4">
+                          <button id="bt2" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" formaction="/users/delete" type="submit" >delete</button>
                         </div>
                         
-                        <p><%= data %></p>
+                        
 
                        
                         <p class="mb-5 pb-lg-2" style="color: #ededed;">already an account? <a href="/login"
                             style="color: #c46075;">sign in</a></p>
                        
                       </form> 
-                      <div class="pt-1 mb-4">
-                        <button id="bt1" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block"  type="submit" >find</button>
-                      </div>
+                  
       
                     </div>
                   </div>
